@@ -26,6 +26,10 @@ body {
   cursor: pointer;
 }
 
+.alphabetize {
+  float: left;
+}
+
 .search-bar {
   margin: auto;
   padding: 10px 20px;
