@@ -41,7 +41,7 @@ function AddsortedContactsToDom(sortedContacts) {
 function sortByNames(name) {
   var element = 0
   if (name === 'last-name') {
-    element = -1
+    element = 1
   }
   return contacts.sort(function(a, b) {
     nameA = a.split(' ')[element]
