@@ -12,8 +12,8 @@ oldHello('world');
 hello('es6');
 
 $(document).ready(function() {
-  var searchBar = document.getElementById('search')
-  getContacts(contacts)
+  getContacts(contacts);
+  filterSearch();
 
   document.addEventListener('click', function(event) {
     buttonClass = event.target.getAttribute('class')
@@ -24,15 +24,23 @@ $(document).ready(function() {
     }
   });
 
-  searchBar.onkeyup = function() {
-    var contactList = document.getElementsByClassName('contact')
-    var letters = this.value.toLowerCase()
-    $(contactList).each(function() {
-      var name = $(this).text().toLowerCase();
-      (name.indexOf(letters) >= 0) ? $(this).slideDown() : $(this).slideUp()
-    });
-  }
 });
+
+function filterSearch() {
+  var searchBar = document.getElementById('search')
+  searchBar.onkeyup = function() {
+    var letters = this.value.toLowerCase()
+    showSearchResults(letters)
+  }
+}
+
+function showSearchResults(letters) {
+  var contactList = document.getElementsByClassName('contact')
+  $(contactList).each(function() {
+    var name = $(this).text().toLowerCase();
+    (name.indexOf(letters) >= 0) ? $(this).slideDown() : $(this).slideUp()
+  });
+}
 
 function getContacts(contacts) {
   var contactList = document.getElementsByClassName('contact-list')[0]
