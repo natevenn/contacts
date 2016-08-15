@@ -24,15 +24,13 @@ $(document).ready(function() {
     }
   });
 
-  searchBar.onkeydown = function(event) {
+  searchBar.onkeyup = function() {
     var contactList = document.getElementsByClassName('contact')
-    var letters = event.key
-    for(var i=0; i<contactList.length; i++) {
-      var contactName = contactList[i].getElementsByClassName('name')[0].innerHTML.toLowerCase()
-      if (contactName.indexOf(letters) === -1) {
-          $(contactList[i]).hide()
-      }
-    }
+    var letters = this.value.toLowerCase()
+    $(contactList).each(function() {
+      var name = $(this).text().toLowerCase();
+      (name.indexOf(letters) >= 0) ? $(this).slideDown() : $(this).slideUp()
+    });
   }
 });
 
