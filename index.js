@@ -12,13 +12,28 @@ oldHello('world');
 hello('es6');
 
 $(document).ready(function() {
+  var searchBar = document.getElementById('search')
   getContacts(contacts)
 
   document.addEventListener('click', function(event) {
-    buttonId = event.target.getAttribute('id')
-    sortedContacts = sortByNames(buttonId)
-    AddsortedContactsToDom(sortedContacts)
+    buttonClass = event.target.getAttribute('class')
+    if (buttonClass === 'alphabetize-button') {
+      buttonId = event.target.getAttribute('id')
+      sortedContacts = sortByNames(buttonId)
+      AddsortedContactsToDom(sortedContacts)
+    }
   });
+
+  searchBar.onkeydown = function(event) {
+    var contactList = document.getElementsByClassName('contact')
+    var letters = event.key
+    for(var i=0; i<contactList.length; i++) {
+      var contactName = contactList[i].getElementsByClassName('name')[0].innerHTML.toLowerCase()
+      if (contactName.indexOf(letters) === -1) {
+          $(contactList[i]).hide()
+      }
+    }
+  }
 });
 
 function getContacts(contacts) {
