@@ -1,30 +1,31 @@
-
-var oldHello = function(name) {
-  console.log('hello, ' + name + '!');
-};
-
-
-const hello = (name) => {
-  console.log(`hello, ${name}!`);
-};
-
-oldHello('world');
-hello('es6');
-
 $(document).ready(function() {
   getContacts(contacts);
   filterSearch();
+  onClickEvent();
 
-  document.addEventListener('click', function(event) {
-    buttonClass = event.target.getAttribute('class')
-    if (buttonClass === 'alphabetize-button') {
-      buttonId = event.target.getAttribute('id')
-      sortedContacts = sortByNames(buttonId)
-      AddsortedContactsToDom(sortedContacts)
-    }
-  });
 
 });
+
+function addContacts() {
+
+}
+
+function onClickEvent() {
+  document.addEventListener('click', function(event) {
+    elementClass = event.target.getAttribute('class')
+    elementId = event.target.getAttribute('id')
+    if (elementClass === 'alphabetize-button') {
+       sortByNames(elementId)
+    }
+    if (elementId === 'add-contact') {
+      createContact()
+    }
+  });
+}
+
+function createContact() {
+
+}
 
 function filterSearch() {
   var searchBar = document.getElementById('search')
@@ -64,7 +65,7 @@ function sortByNames(name) {
   if (name === 'last-name') {
     element = 1
   }
-  return contacts.sort(function(a, b) {
+  sortedContacts = contacts.sort(function(a, b) {
     nameA = a.split(' ')[element]
     nameB = b.split(' ')[element]
     if(nameA < nameB){
@@ -75,6 +76,7 @@ function sortByNames(name) {
     }
     return 0
   })
+  AddsortedContactsToDom(sortedContacts)
 }
 
 var contacts = [

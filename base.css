@@ -16,6 +16,12 @@ body {
   margin: 0px;
 }
 
+#add-contact-header {
+  color: #273444;
+  font-weight: 200;
+  margin: 0px;
+}
+
 .header span#add-contact {
   padding: 4px 6px;
   float: right;
@@ -26,22 +32,52 @@ body {
   cursor: pointer;
 }
 
+
 .alphabetize-button {
   float: left;
+  margin-top: 15px;
 }
 
 .search-bar {
   margin: auto;
   padding: 10px 20px;
   background-color: #C0CCDA;
-
 }
+
+.add-contact-form {
+  /*margin: auto;*/
+  /*padding: 10px 500px;*/
+  background-color: #C0CCDA;
+}
+
+#contact-name-number {
+  margin: auto;
+  padding: 10px 710px;
+}
+
+#contact-address {
+  margin-right: auto;
+  padding: 10px 650px;
+}
+
+/*.add-contact-form #contact-name {*/
+  /*padding: 10px;*/
+  /*border: none;*/
+  /*width: 100%;*/
+  /*margin: 3px -10px;*/
+/*}*/
+/*.add-contact-form #contact-number {*/
+  /*padding: 10px;*/
+  /*border: none;*/
+  /*width: 100%;*/
+  /*margin: 3px -10px;*/
+/*}*/
 
 .search-bar #search {
   padding: 10px;
   border: none;
   width: 100%;
-  margin: 3px -10px;
+  margin: 18px -10px;
 }
 
 .contact-list {
