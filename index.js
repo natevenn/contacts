@@ -17,19 +17,19 @@ function onClickEvent() {
       showContactForm(id)
     }
     if (elementClass === 'create-contact-button') {
-      getNewContact(event)
-      hideContactForm(id)
+      getNewContact(event, id)
     }
   });
 }
 
-function getNewContact(event) {
+function getNewContact(event, id) {
   var contactInfo = document.getElementsByClassName('input-box')
   var newContact = []
   $(contactInfo).each(function(index, input) {
     newContact[index] = input.value
   })
   addNewContact(newContact)
+  hideContactForm(id)
 }
 
 function addNewContact(newContact) {
