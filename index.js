@@ -2,29 +2,50 @@ $(document).ready(function() {
   getContacts(contacts);
   filterSearch();
   onClickEvent();
-
-
 });
 
-function addContacts() {
-
-}
 
 function onClickEvent() {
   document.addEventListener('click', function(event) {
-    elementClass = event.target.getAttribute('class')
-    elementId = event.target.getAttribute('id')
+    var elementClass = event.target.getAttribute('class')
+    var elementId = event.target.getAttribute('id')
+    var id = document.getElementsByClassName('contact-form')
     if (elementClass === 'alphabetize-button') {
        sortByNames(elementId)
     }
     if (elementId === 'add-contact') {
-      createContact()
+      showContactForm(id)
+    }
+    if (elementClass === 'create-contact-button') {
+      getNewContact(event)
+      hideContactForm(id)
     }
   });
 }
 
-function createContact() {
+function getNewContact(event) {
+  var contactInfo = document.getElementsByClassName('input-box')
+  var newContact = []
+  $(contactInfo).each(function(index, input) {
+    newContact[index] = input.value
+  })
+  addNewContact(newContact)
+}
 
+function addNewContact(newContact) {
+  if(newContact[0] && newContact[1]){
+    var contactList = document.getElementsByClassName('contact-list')[0]
+    var contact = '<div class="contact"><p class="name">' + newContact[0] + ' ' + newContact[1] + '</p></div>'
+    $(contactList).append(contact)
+  }
+}
+
+function showContactForm(id) {
+ $(id).removeClass('contact-form-js')
+}
+
+function hideContactForm(id) {
+  $(id).addClass('contact-form-js')
 }
 
 function filterSearch() {

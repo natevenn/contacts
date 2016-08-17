@@ -7,31 +7,39 @@
     <link rel="stylesheet" type="text/css" href="base.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
+
   <body>
+
     <div class="header">
       <h2>Contacts<span id="add-contact">+</span></h2>
       <button class='alphabetize-button' id='first-name'>Alphabetize first names</button>
       <button class='alphabetize-button' id='last-name'>Alphabetize last names</button>
     </div>
+
     <div class="search-bar">
       <input id="search" type="text" placeholder="&#128269; Search"></input>
     </div>
-    <div class='add-contact-form'>
-      <h2 id='add-contact-header'><center>Add Contact</center></h2>
-      <div id=contact-name-number>
-        <input id='contact-firstname' type='text' placeholder='First Name'></input>
-        <input id='contact-lastname' type='text' placeholder='Last Name'></input>
-        <input id='contact-number' type='text' placeholder='Phone Number'></input>
-      </div>
-      <div id=contact-address>
-        <input id='contact-street' type='text' placeholder='Street Address'></input>
-        <input id='contact-city' type='text' placeholder='City'></input>
-        <input id='contact-state' type='text' placeholder='State'></input>
-        <input id='contact-zip' type='text' placeholder='Zip'></input>
-      </div>
+
+    <div class='contact-form contact-form-js'>
+
+      <h2 id='contact-header'><center>Add Contact</center></h2>
+
+      <center><div id=contact-input>
+        <input class='input-box' id='contact-firstname' type='text' placeholder='First Name'></input>
+        <input class='input-box' id='contact-lastname' type='text' placeholder='Last Name'></input>
+        <input class='input-box' id='contact-number' type='text' placeholder='Phone Number'></input>
+        <input class='input-box' id='contact-street' type='text' placeholder='Street Address'></input>
+        <input class='input-box' id='contact-city' type='text' placeholder='City'></input>
+        <input class='input-box' id='contact-state' type='text' placeholder='State'></input>
+        <input class='input-box' id='contact-zip' type='text' placeholder='Zip'></input><br><br>
+        <center><button class='create-contact-button' id='new-contact'>Create Contact</button></center>
+        </div></center>
+
     </div>
+
     <div class="contact-list">
     </div>
+
   </body>
   <script src="index.js"></script>
 </html>
