@@ -27,16 +27,19 @@ function getNewContact(event, id) {
   var newContact = []
   $(contactInfo).each(function(index, input) {
     newContact[index] = input.value
+    input.value = ""
   })
   addNewContact(newContact)
   hideContactForm(id)
 }
 
 function addNewContact(newContact) {
-  if(newContact[0] && newContact[1]){
+  if(newContact[0,1]) {
     var contactList = document.getElementsByClassName('contact-list')[0]
     var contact = '<div class="contact"><p class="name">' + newContact[0] + ' ' + newContact[1] + '</p></div>'
     $(contactList).append(contact)
+  } else {
+    console.log('missing name')
   }
 }
 
